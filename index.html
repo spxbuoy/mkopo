@@ -144,18 +144,10 @@
           <div class="col-md-6">
             <div class="field">
               <!-- accept international phone: 07xxxxxxxx or 2547xxxxxxxx or +2547xxxxxxxx -->
-              <input id="phone" placeholder=" " inputmode="tel" pattern="\\d{9,15}" maxlength="15" required>
+               <input id="phone" placeholder=" " required>
               <label for="phone">Phone number (international, e.g. 254712345678)</label>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div class="field">
-              <input id="mpesa" placeholder=" " required>
-              <label for="mpesa">MPESA Transaction ID</label>
-            </div>
-          </div>
-        </div>
 
         <div style="display:flex;gap:10px;margin-top:12px">
           <button type="submit" class="btn-primary" id="toVerify">Verify & Next</button>
