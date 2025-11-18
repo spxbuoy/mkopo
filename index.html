@@ -125,12 +125,21 @@
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="field">
-              <input id="imei" placeholder=" " inputmode="numeric" pattern="\\d{15}" maxlength="15" required>
-              <label for="imei">IMEI (15 digits)</label>
-            </div>
-          </div>
+<div class="col-md-6">
+  <div class="field">
+    <input 
+      id="imei" 
+      placeholder="15-digit IMEI" 
+      inputmode="numeric" 
+      pattern="[0-9]{15}" 
+      maxlength="15" 
+      required
+      oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+    <label for="imei">IMEI (15 digits)</label>
+    <small class="muted small"><i class="fas fa-info-circle me-1"></i> Dial *#06# to find IMEI</small>
+  </div>
+</div>
+
 
           <div class="col-md-6">
             <div class="field">
