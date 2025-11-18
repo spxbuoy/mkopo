@@ -18,7 +18,6 @@
       --accent:#25a6ff; --accent-2:#00e0a3; --muted:#b6c3ce;
       --card-radius:18px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -35,74 +34,45 @@
       border-radius:var(--card-radius); padding:28px; overflow:hidden; box-shadow:0 10px 40px rgba(2,10,20,0.6);
       display:grid; grid-template-columns: 380px 1fr; gap:24px; align-items:start;
     }
-
-    /* responsive fallback */
     @media (max-width: 980px){.portal{grid-template-columns:1fr}}
-
-    /* left column */
-    .left{
-      padding:20px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      border:1px solid rgba(255,255,255,0.03);
-    }
-
+    .left{ padding:20px; border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(255,255,255,0.03); }
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{width:72px;height:72px;border-radius:12px;object-fit:contain;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.6))}
     .brand .title{font-weight:600;font-size:1.05rem}
     .brand .sub{font-size:0.78rem;color:var(--muted)}
-
     .badge-sec{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(90deg, rgba(37,166,255,0.12), rgba(0,224,163,0.06));padding:6px 10px;border-radius:999px;font-weight:600;color:var(--accent)}
-
     .kpi{margin-top:18px;display:flex;flex-direction:column;gap:10px}
     .kpi .item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
     .kpi .label{font-size:0.9rem;color:var(--muted)}
     .kpi .val{font-weight:600}
-
-    /* Steps progress */
     .steps{margin-top:20px}
     .step-pill{display:flex;gap:8px;align-items:center;margin-bottom:10px}
     .step-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center}
     .step-label{font-size:0.9rem}
-
-    /* right column (main) */
     .main{padding:20px;border-radius:14px; min-height:420px; background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.006)); border:1px solid rgba(255,255,255,0.02)}
-
     .card{background:transparent}
     h2{margin:0 0 12px 0}
-
     form .row{gap:12px}
-
-    /* floating inputs */
     .field{position:relative;margin-bottom:14px}
     .field input,.field select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);color:inherit}
     .field label{position:absolute;left:14px;top:12px;font-size:0.85rem;color:var(--muted);pointer-events:none;transition:0.18s}
     .field input:focus + label,.field input:not(:placeholder-shown) + label{top:-8px;left:12px;background:var(--bg-2);padding:0 6px;font-size:0.72rem;color:var(--accent)}
-
     .btn-primary{background:linear-gradient(90deg,var(--accent),#00c6ff);border:none;color:#012; font-weight:700; padding:12px 16px;border-radius:12px}
     .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:10px 12px;border-radius:10px}
-
-    /* terminal */
     .terminal{background:#02040a;border-radius:10px;padding:12px;font-family:monospace;font-size:0.85rem;color:#9ae0ff;box-shadow:inset 0 0 30px rgba(0,0,0,0.6)}
     .term-line{opacity:0; transform:translateY(6px); animation:termIn 0.45s forwards;}
     @keyframes termIn{to{opacity:1;transform:none}}
-
-    /* progress */
     .progress-wrap{margin-top:14px}
     .prog{height:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:999px;overflow:hidden}
     .prog .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 600ms cubic-bezier(.2,.9,.2,1)}
-
-    /* unlock success */
     .success{display:flex;flex-direction:column;align-items:center;gap:8px}
     .check{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg, rgba(37,166,255,0.12), rgba(0,224,163,0.08));border:1px solid rgba(255,255,255,0.03)}
-
-    /* small helpers */
     .muted{color:var(--muted)}
     .small{font-size:0.85rem}
-
-    /* animations */
     .pulse{animation:pulse 2s infinite}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,166,255,0.12)}70%{box-shadow:0 0 0 20px rgba(37,166,255,0)}100%{box-shadow:0 0 0 0 rgba(37,166,255,0)}}
-
     footer{margin-top:18px;text-align:center;color:var(--muted);font-size:0.82rem}
+    pre { white-space:pre-wrap; word-break:break-word; }
   </style>
 </head>
 <body>
@@ -115,7 +85,7 @@
           <img src="https://images.seeklogo.com/logo-png/55/1/m-kopa-logo-png_seeklogo-559571.png" alt="MKOPA"/>
           <div>
             <div class="title">MKOPA Unlock Portal</div>
-            <div class="sub">Authorized service — modern demo</div>
+            <div class="sub">Authorized service</div>
           </div>
         </div>
 
@@ -136,137 +106,162 @@
           <div class="step-pill"><div class="step-icon"><i class="fas fa-wrench"></i></div><div class="step-label">3. Unlocking</div></div>
           <div class="step-pill"><div class="step-icon"><i class="fas fa-check-circle"></i></div><div class="step-label">4. Complete</div></div>
         </div>
-
       </aside>
 
-      <!-- RIGHT: Main flow -->
-      <main class="main" id="main">
+  <!-- RIGHT: Main flow -->
+  <main class="main" id="main">
 
-        <!-- Step container -->
-        <section id="step-device" class="step" aria-labelledby="deviceTitle">
-          <h2 id="deviceTitle">Device Information</h2>
-          <p class="muted small">Provide correct device details. This demo performs a visual simulation only — it does not bypass device protections.</p>
+    <!-- Step container -->
+    <section id="step-device" class="step" aria-labelledby="deviceTitle">
+      <h2 id="deviceTitle">Device Information</h2>
+      <p class="muted small">Provide correct device details.</p>
 
-          <form id="deviceForm" autocomplete="off">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="field">
-                  <input id="deviceModel" placeholder=" " required>
-                  <label for="deviceModel">Device model (e.g. Samsung A10)</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="field">
-                  <input id="imei" placeholder=" " inputmode="numeric" pattern="[0-9]{15}" maxlength="15" required>
-                  <label for="imei">IMEI (15 digits)</label>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="field">
-                  <input id="phone" placeholder=" " inputmode="tel" required>
-                  <label for="phone">Phone number (e.g. 254712345678)</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="field">
-                  <input id="mpesa" placeholder=" " required>
-                  <label for="mpesa">MPESA Transaction ID</label>
-                </div>
-              </div>
-            </div>
-
-            <div style="display:flex;gap:10px;margin-top:12px">
-              <button type="submit" class="btn-primary" id="toVerify">Verify & Next</button>
-              <button type="button" class="btn-ghost" id="prefill">Auto-fill demo</button>
-            </div>
-          </form>
-
-          <div style="margin-top:16px">
-            <div class="muted small">Device detection</div>
-            <div style="display:flex;gap:10px;margin-top:8px">
-              <div style="flex:1">
-                <div class="kpi item"><div class="label">Battery</div><div class="val" id="batteryVal">--%</div></div>
-              </div>
-              <div style="flex:1">
-                <div class="kpi item"><div class="label">Network</div><div class="val" id="netVal">--</div></div>
-              </div>
+      <form id="deviceForm" autocomplete="off">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="field">
+              <input id="deviceModel" placeholder=" " required>
+              <label for="deviceModel">Device model (e.g. Samsung A10)</label>
             </div>
           </div>
-        </section>
 
-        <!-- Verification step -->
-        <section id="step-verify" class="step" style="display:none">
-          <h2>Admin Verification</h2>
-          <p class="muted small">Enter admin credentials to authorize unlock. (Demo: password is <strong>letmein</strong>)</p>
-
-          <div style="display:grid;grid-template-columns:1fr 320px;gap:18px">
-            <div>
-              <div class="field"><input id="adminPass" placeholder=" " type="password"><label for="adminPass">Admin password</label></div>
-              <div style="display:flex;gap:8px;margin-top:6px">
-                <button class="btn-primary" id="authorize">Authorize</button>
-                <button class="btn-ghost" id="backToDevice">Back</button>
-              </div>
-
-              <div id="summary" style="margin-top:14px;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)"></div>
-            </div>
-
-            <div>
-              <div style="border-radius:10px;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);border:1px solid rgba(255,255,255,0.02)">
-                <div class="muted small">Request metadata</div>
-                <div style="margin-top:10px">
-                  <div class="kpi item"><div class="label">Device ID</div><div class="val" id="deviceId">--</div></div>
-                  <div class="kpi item"><div class="label">IP (visual)</div><div class="val" id="ipFake">--</div></div>
-                  <div class="kpi item"><div class="label">ISP (sim)</div><div class="val" id="ispFake">--</div></div>
-                </div>
-              </div>
+          <div class="col-md-6">
+            <div class="field">
+              <input id="imei" placeholder=" " inputmode="numeric" pattern="\\d{15}" maxlength="15" required>
+              <label for="imei">IMEI (15 digits)</label>
             </div>
           </div>
-        </section>
 
-        <!-- Unlocking step -->
-        <section id="step-unlock" class="step" style="display:none">
-          <h2>Unlocking</h2>
-          <p class="muted small">Simulation in progress — this demo does NOT bypass manufacturer protections.</p>
-
-          <div class="terminal" id="terminal" aria-live="polite" style="margin-top:10px">
-            <!-- lines injected by JS -->
-          </div>
-
-          <div class="progress-wrap">
-            <div style="display:flex;justify-content:space-between;margin-top:12px"><div class="muted small">Progress</div><div class="muted small" id="progPct">0%</div></div>
-            <div class="prog" aria-hidden="false" style="margin-top:8px"><div class="fill" id="progFill"></div></div>
-          </div>
-
-        </section>
-
-        <!-- Complete -->
-        <section id="step-done" class="step" style="display:none">
-          <h2>Complete</h2>
-          <div class="success" style="margin-top:14px">
-            <div class="check pulse"><i class="fas fa-check fa-2x" style="color:var(--accent)"></i></div>
-            <div style="font-weight:700">Device processed</div>
-            <div class="muted small">Follow on-screen steps: power-off → wait → power-on</div>
-
-            <div style="margin-top:14px;width:100%">
-              <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)">
-                <div class="muted small">Unlock Receipt</div>
-                <div style="margin-top:10px" id="receipt"></div>
-              </div>
-            </div>
-
-            <div style="margin-top:12px;display:flex;gap:8px">
-              <button class="btn-primary" id="newUnlock">Start New</button>
-              <a class="btn-ghost" href="https://wa.me/254780634300" target="_blank">Contact Support</a>
+          <div class="col-md-6">
+            <div class="field">
+              <!-- accept international phone: 07xxxxxxxx or 2547xxxxxxxx or +2547xxxxxxxx -->
+              <input id="phone" placeholder=" " inputmode="tel" pattern="\\d{9,15}" maxlength="15" required>
+              <label for="phone">Phone number (international, e.g. 254712345678)</label>
             </div>
           </div>
-        </section>
 
-      </main>
+          <div class="col-md-6">
+            <div class="field">
+              <input id="mpesa" placeholder=" " required>
+              <label for="mpesa">MPESA Transaction ID</label>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <button type="submit" class="btn-primary" id="toVerify">Verify & Next</button>
+        </div>
+      </form>
+
+      <div style="margin-top:16px">
+        <div class="muted small">Device detection</div>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <div style="flex:1">
+            <div class="kpi item">
+              <div class="label">Battery</div>
+              <div class="val" id="batteryVal">--%</div>
+            </div>
+          </div>
+
+          <div style="flex:1">
+            <div class="kpi item">
+              <div class="label">Network</div>
+              <div class="val" id="netVal">--</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <div style="flex:1">
+            <div class="kpi item">
+              <div class="label">Signal / Downlink</div>
+              <div class="val" id="downlinkVal">--</div>
+            </div>
+          </div>
+          <div style="flex:1">
+            <div class="kpi item">
+              <div class="label">Screen</div>
+              <div class="val" id="screenVal">--</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Verification step -->
+    <section id="step-verify" class="step" style="display:none">
+      <h2>Admin Verification</h2>
+      <p class="muted small">Enter admin credentials to authorize unlock.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:18px">
+        <div>
+          <div class="field"><input id="adminPass" placeholder=" " type="password"><label for="adminPass">Admin password</label></div>
+          <div style="display:flex;gap:8px;margin-top:6px">
+            <button class="btn-primary" id="authorize">Authorize</button>
+            <button class="btn-ghost" id="backToDevice">Back</button>
+          </div>
+
+          <div id="summary" style="margin-top:14px;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)"></div>
+        </div>
+
+        <div>
+          <div style="border-radius:10px;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);border:1px solid rgba(255,255,255,0.02)">
+            <div class="muted small">Request metadata</div>
+            <div style="margin-top:10px">
+              <div class="kpi item"><div class="label">Device ID</div><div class="val" id="deviceId">--</div></div>
+              <div class="kpi item"><div class="label">IP (visual)</div><div class="val" id="ipFake">--</div></div>
+              <div class="kpi item"><div class="label">ISP (sim)</div><div class="val" id="ispFake">--</div></div>
+              <div class="kpi item"><div class="label">Browser / OS</div><div class="val" id="uaVal">--</div></div>
+              <div class="kpi item"><div class="label">Device model (UA)</div><div class="val" id="modelVal">--</div></div>
+              <div class="kpi item"><div class="label">Memory / Cores</div><div class="val" id="hwVal">--</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unlocking step -->
+    <section id="step-unlock" class="step" style="display:none">
+      <h2>Unlocking</h2>
+      <p class="muted small">This UI simulates an unlock flow (no device protections are bypassed).</p>
+
+      <div class="terminal" id="terminal" aria-live="polite" style="margin-top:10px"></div>
+
+      <div class="progress-wrap">
+        <div style="display:flex;justify-content:space-between;margin-top:12px"><div class="muted small">Progress</div><div class="muted small" id="progPct">0%</div></div>
+        <div class="prog" aria-hidden="false" style="margin-top:8px"><div class="fill" id="progFill"></div></div>
+      </div>
+
+    </section>
+
+    <!-- Complete -->
+    <section id="step-done" class="step" style="display:none">
+      <h2>Complete</h2>
+      <div class="success" style="margin-top:14px">
+        <div class="check pulse"><i class="fas fa-check fa-2x" style="color:var(--accent)"></i></div>
+        <div style="font-weight:700">Device processed</div>
+        <div class="muted small">Follow on-screen steps: power-off → wait → power-on</div>
+
+        <div style="margin-top:14px;width:100%">
+          <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)">
+            <div class="muted small">Unlock Receipt</div>
+            <div style="margin-top:10px" id="receipt"></div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button class="btn-primary" id="newUnlock">Start New</button>
+          <a class="btn-ghost" href="https://wa.me/254780634300" target="_blank">Contact Support</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
     </div>
 
-    <footer>© MKOPA Solutions Ltd — Demo portal • This project simulates an unlock flow for UI/UX/testing only.</footer>
+    <footer>© MKOPA Solutions Ltd — Portal</footer>
   </div>
 
   <!-- JS (all inline for single-file deliverable) -->
@@ -275,89 +270,187 @@
     const $ = sel => document.querySelector(sel);
     const $$ = sel => Array.from(document.querySelectorAll(sel));
 
-    // Random device id generator
+    // Generate a device id (uses user-provided IMEI if present)
     function genDeviceId(imei){
       const base = imei ? imei.slice(-6) : Math.random().toString(36).slice(2,8);
       return 'MKP-'+base.toUpperCase()+'-'+Date.now().toString().slice(-5);
     }
 
-    // Fake IP generator (visual only)
-    function fakeIP(){ return ["41","102","192","88"][Math.floor(Math.random()*4)] +'.'+Math.floor(Math.random()*255)+'.'+Math.floor(Math.random()*255)+'.'+Math.floor(Math.random()*255);} 
-
-    // Prefill demo data
-    $('#prefill').addEventListener('click', e => {
-      $('#deviceModel').value = 'Samsung Galaxy A10'; $('#deviceModel').dispatchEvent(new Event('input'));
-      $('#imei').value = '350742091234568'; $('#imei').dispatchEvent(new Event('input'));
-      $('#phone').value = '254712345678'; $('#mpesa').value='NC623H8WX2';
-      toast('Demo data filled');
-    });
-
-    // Toast (simple)
-    function toast(msg){
-      const el = document.createElement('div'); el.textContent = msg; el.style.cssText='position:fixed;right:20px;bottom:20px;background:rgba(2,8,20,0.9);padding:10px 14px;border-radius:10px;color:#bfefff;box-shadow:0 6px 18px rgba(0,0,0,0.6)';document.body.appendChild(el);
-      setTimeout(()=>el.style.opacity=0,1800); setTimeout(()=>el.remove(),2400);
+    // Try to fetch public IP and ISP/org using public endpoints.
+    // If fetch fails (CORS or network), fallbacks will be used.
+    async function fetchIpInfo(){
+      try{
+        // Try ipify for IP
+        const ipRes = await fetch('https://api.ipify.org?format=json');
+        const ipJson = await ipRes.json();
+        const ip = ipJson.ip;
+        // Try ipapi.co for org and city (may be blocked by CORS on some hosts)
+        let isp = 'Unknown';
+        try{
+          const geoRes = await fetch('https://ipapi.co/json/');
+          if(geoRes.ok){
+            const g = await geoRes.json();
+            isp = g.org || (g.city ? g.city + (g.region ? ', ' + g.region : '') : 'Unknown');
+          }
+        }catch(e){
+          // ignored - fallback
+        }
+        return { ip, isp };
+      }catch(e){
+        return { ip: 'Unknown', isp: 'Unknown' };
+      }
     }
 
-    // Device detection simulation (battery & network)
-    function detectDevice(){
-      // battery: use navigator.getBattery when available (browser dependent)
-      if(navigator.getBattery){
-        navigator.getBattery().then(batt => {
-          const pct = Math.round(batt.level*100);
-          $('#batteryVal').textContent = pct + '%';
-        }).catch(_=> $('#batteryVal').textContent='--%');
-      } else { $('#batteryVal').textContent = Math.floor(Math.random()*60)+30 + '%'; }
+    // Device detection: battery, connection, hw, screen, UA parse
+    async function detectDevice(updateSummary=false){
+      // battery
+      if('getBattery' in navigator){
+        try{
+          const batt = await navigator.getBattery();
+          const setBatt = () => $('#batteryVal').textContent = Math.round(batt.level*100) + '%';
+          setBatt();
+          batt.addEventListener('levelchange', setBatt);
+        }catch(e){ $('#batteryVal').textContent = 'Unknown'; }
+      } else {
+        $('#batteryVal').textContent = 'Not supported';
+      }
 
-      // network
+      // network (effectiveType / downlink / rtt)
       const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-      if(connection && connection.effectiveType){
-        $('#netVal').textContent = connection.effectiveType;
-      } else { $('#netVal').textContent = '4G'; }
+      if(connection){
+        const updateConn = () => {
+          const type = connection.effectiveType || 'unknown';
+          $('#netVal').textContent = type.toUpperCase();
+          const down = connection.downlink ? (connection.downlink + ' Mbps') : '—';
+          $('#downlinkVal').textContent = down + (connection.rtt ? (' / RTT ' + connection.rtt + 'ms') : '');
+        };
+        updateConn();
+        try { connection.addEventListener('change', updateConn); } catch(e){}
+      } else {
+        $('#netVal').textContent = 'Unknown';
+        $('#downlinkVal').textContent = '—';
+      }
+
+      // screen
+      $('#screenVal').textContent = `${window.screen.width}×${window.screen.height} @ ${window.devicePixelRatio || 1}x`;
+
+      // memory / cores
+      const mem = navigator.deviceMemory || 'Unknown';
+      const cores = navigator.hardwareConcurrency || 'Unknown';
+      $('#hwVal').textContent = (mem === 'Unknown' ? mem : mem + ' GB') + ' / ' + cores + ' cores';
+
+      // UA parsing (best-effort)
+      const ua = navigator.userAgent || '';
+      $('#uaVal').textContent = ua.split(')')[0] || ua;
+      const model = guessDeviceModelFromUA(ua);
+      $('#modelVal').textContent = model;
+
+      // IP + ISP
+      const ipInfo = await fetchIpInfo();
+      $('#ipFake').textContent = ipInfo.ip || 'Unknown';
+      $('#ispFake').textContent = ipInfo.isp || 'Unknown';
+
+      // if updateSummary requested, also update the verify summary metadata
+      if(updateSummary) fillMetadataForVerify();
+    }
+
+    // Best-effort device model / OS / Browser parsing from userAgent
+    function guessDeviceModelFromUA(ua){
+      ua = ua || navigator.userAgent || '';
+      // OS
+      const isAndroid = /Android/i.test(ua);
+      const isIOS = /iPhone|iPad|iPod/i.test(ua);
+      // Browser / engine
+      let browser = 'Unknown';
+      if(/Chrome\/\d+/i.test(ua) && /Edg\//i.test(ua) === false && /OPR\//i.test(ua) === false) browser = 'Chrome';
+      if(/Firefox\//i.test(ua)) browser = 'Firefox';
+      if(/Safari\//i.test(ua) && /Chrome\/\d+/i.test(ua) === false) browser = 'Safari';
+      if(/OPR\//i.test(ua) || /Opera\//i.test(ua)) browser = 'Opera';
+      if(/Edg\//i.test(ua)) browser = 'Edge';
+      // device model: many UAs include model (Android)
+      const androidModelMatch = ua.match(/Android.*; (.+?) Build/);
+      if(androidModelMatch && androidModelMatch[1]) return androidModelMatch[1].trim();
+      // iPhone model fallback
+      if(isIOS){
+        const iphoneMatch = ua.match(/\((iPhone|iPad);/i);
+        return iphoneMatch ? iphoneMatch[1] : 'iOS device';
+      }
+      // Desktop fallback
+      const desktopMatch = ua.match(/\(([^)]+)\)/);
+      return desktopMatch ? desktopMatch[1] : (browser + (isAndroid ? ' on Android' : isIOS ? ' on iOS' : ''));
+    }
+
+    // Fill summary/metadata for the verification step (uses user input)
+    function fillMetadataForVerify(){
+      const imei = $('#imei').value.trim();
+      $('#deviceId').textContent = genDeviceId(imei);
+      // provider: try to detect via ISP fetched earlier, else try phone prefix mapping
+      // we'll attempt phone prefix detection for Kenya (best-effort). If IP API returned a recognizable ISP, that stays.
+      // phone prefix mapping (very simple / best-effort)
+      const rawPhone = ($('#phone').value || '').replace(/\D/g,'');
+      let providerFromPhone = 'Unknown';
+      if(rawPhone.length){
+        const p = rawPhone.replace(/^254/, '').replace(/^0/, '');
+        // simple Kenyan prefix heuristics (not exhaustive)
+        const prefix2 = p.slice(0,2);
+        const prefix3 = p.slice(0,3);
+        // these prefixes approximate common ranges but are not authoritative
+        const safaricPrefixes = ['70','71','72','73','74','75','76','77','78','79','10','11']; // broad heuristic
+        const airtelPrefixes = ['73','74']; // overlap exists — heuristics imperfect
+        if(safaricPrefixes.includes(prefix2)) providerFromPhone = 'Safaricom (likely)';
+        else if(airtelPrefixes.includes(prefix2)) providerFromPhone = 'Airtel (likely)';
+        else providerFromPhone = 'Unknown (from number)';
+      }
+      // if ISP (ipapi) had a value different from 'Unknown', keep it; otherwise show providerFromPhone
+      const isp = $('#ispFake').textContent || 'Unknown';
+      $('#ispFake').textContent = (isp && isp !== 'Unknown') ? isp : providerFromPhone;
     }
 
     // Form flow
     const deviceForm = $('#deviceForm');
-    deviceForm.addEventListener('submit', e => {
+    deviceForm.addEventListener('submit', async e => {
       e.preventDefault();
-      // basic validation
       const imei = $('#imei').value.trim();
-      if(!/^\d{15}$/.test(imei)){ alert('IMEI must be 15 digits'); return; }
+      if(!/^\d{15}$/.test(imei)){ alert('IMEI must be exactly 15 digits'); return; }
 
-      // fill summary
-      const summary = `Model: ${$('#deviceModel').value}\nIMEI: ${imei}\nPhone: ${$('#phone').value}\nMPESA: ${$('#mpesa').value}`;
+      // ensure phone present
+      const phoneRaw = $('#phone').value.trim();
+      if(!/^\d{9,15}$/.test(phoneRaw)){ alert('Phone must be 9–15 digits (international format recommended)'); return; }
+
+      // fill summary (simple text)
+      const summary = `Model: ${$('#deviceModel').value}\nIMEI: ${imei}\nPhone: ${phoneRaw}\nMPESA: ${$('#mpesa').value}`;
       $('#summary').textContent = summary;
 
-      // set metadata
-      $('#deviceId').textContent = genDeviceId(imei);
-      $('#ipFake').textContent = fakeIP();
-      $('#ispFake').textContent = 'Safarinet (sim)';
+      // fetch up-to-date device metadata (IP/ISP etc) and then fill verify UI
+      await detectDevice(true);
 
       // move to verify
-      showStep('verify'); detectDevice();
+      showStep('verify');
     });
 
     // navigation helpers
     function showStep(k){
-      ['device','verify','unlock','done'].forEach(s=>{ const el = document.getElementById('step-'+(s==='device'?'device':s)); if(el) el.style.display = (s===k)?'block':'none'; });
+      const map = { device: 'step-device', verify: 'step-verify', unlock: 'step-unlock', done: 'step-done' };
+      Object.values(map).forEach(id => document.getElementById(id).style.display = 'none');
+      const active = document.getElementById(map[k]);
+      if(active) active.style.display = 'block';
     }
 
     // button actions
     document.getElementById('backToDevice').addEventListener('click', ()=>{ showStep('device'); });
-    document.getElementById('toVerify').addEventListener('click', ()=>{}); // handled by form submit
+    document.getElementById('toVerify').addEventListener('click', ()=>{}); // submission handled by form
 
-    // authorize (admin)
+    // authorize (admin) — DO NOT use real bypass routines; this is UI gating only.
     document.getElementById('authorize').addEventListener('click', e=>{
-      e.preventDefault(); const pass = document.getElementById('adminPass').value.trim();
-      // demo only: do not provide real bypass
-      if(pass === 'letmein'){
-        toast('Authorized — starting unlock');
-        startUnlock();
-      } else {
-        alert('Admin password incorrect');
-      }
+      e.preventDefault();
+      const pass = document.getElementById('adminPass').value.trim();
+      if(!pass){ alert('Enter admin password'); return; }
+      // NOTE: this is a UI-only authorization for demo. Replace with real server validation in production.
+      toast('Authorization accepted (UI). Starting unlock simulation.');
+      startUnlock();
     });
 
-    // Start unlock simulation
+    // Start unlock simulation (keeps your original simulation flow)
     async function startUnlock(){
       showStep('unlock');
       const term = document.getElementById('terminal'); term.innerHTML='';
@@ -374,22 +467,17 @@
 
       for(let i=0;i<lines.length;i++){
         const d = document.createElement('div'); d.className='term-line'; d.textContent = lines[i]; d.style.animationDelay = (i*320)+'ms'; term.appendChild(d);
-        // progress
         const pct = Math.min(95, Math.round((i+1)/lines.length*80)); updateProgress(pct);
         await wait(450 + Math.random()*200);
       }
 
-      // simulate download
       await simulateDownload();
 
       updateProgress(100);
-      setTimeout(()=>{
-        showDone();
-      },800);
+      setTimeout(()=> showDone(), 800);
     }
 
     function updateProgress(pct){ document.getElementById('progFill').style.width = pct + '%'; document.getElementById('progPct').textContent = pct + '%'; }
-
     function wait(ms){ return new Promise(res=>setTimeout(res,ms)); }
 
     async function simulateDownload(){
@@ -397,7 +485,6 @@
       while(done < total){
         await wait(180 + Math.random()*300);
         done += step + Math.random()*0.4; const pct = Math.min(99, Math.round(done/total*100)); updateProgress(pct);
-        // append download line occasionally
         const d = document.createElement('div'); d.className='term-line'; d.textContent = `> Downloaded ${Math.min(total, done).toFixed(1)}MB / ${total}MB`;
         document.getElementById('terminal').appendChild(d);
       }
@@ -405,27 +492,50 @@
 
     function showDone(){
       showStep('done');
-      // receipt
       const rec = `DeviceID: ${document.getElementById('deviceId').textContent}\nModel: ${document.getElementById('deviceModel').value}\nIMEI: ${document.getElementById('imei').value}\nTransaction: ${document.getElementById('mpesa').value}\nProcessed at: ${new Date().toLocaleString()}`;
       document.getElementById('receipt').textContent = rec;
     }
 
     // start new
     document.getElementById('newUnlock').addEventListener('click', ()=>{
-      // reset form
-      document.getElementById('deviceForm').reset(); document.getElementById('adminPass').value=''; document.getElementById('terminal').innerHTML=''; updateProgress(0); showStep('device');
+      document.getElementById('deviceForm').reset();
+      document.getElementById('adminPass').value='';
+      document.getElementById('terminal').innerHTML='';
+      updateProgress(0);
+      // reset detected UI values
+      $('#batteryVal').textContent='--%';
+      $('#netVal').textContent='--';
+      $('#downlinkVal').textContent='--';
+      $('#screenVal').textContent='--';
+      $('#deviceId').textContent='--';
+      $('#ipFake').textContent='--';
+      $('#ispFake').textContent='--';
+      $('#uaVal').textContent='--';
+      $('#modelVal').textContent='--';
+      $('#hwVal').textContent='--';
+      showStep('device');
     });
 
-    // show initial device info
-    detectDevice();
+    // simple toast
+    function toast(msg){
+      const el = document.createElement('div'); el.textContent = msg; el.style.cssText='position:fixed;right:20px;bottom:20px;background:rgba(2,8,20,0.9);padding:10px 14px;border-radius:10px;color:#bfefff;box-shadow:0 6px 18px rgba(0,0,0,0.6);z-index:9999';
+      document.body.appendChild(el);
+      setTimeout(()=>el.style.opacity=0,1800); setTimeout(()=>el.remove(),2400);
+    }
 
-    // accessibility: allow Enter to submit admin
-    document.getElementById('adminPass').addEventListener('keyup', e => { if(e.key === 'Enter') document.getElementById('authorize').click(); });
-
-    // simple minor polish: animate KPI number
+    // small minor polish: animate KPI number
     (function(){const el = document.getElementById('kpi-sessions'); let n=3; setInterval(()=>{n = 2 + Math.floor(Math.random()*6); el.textContent = n},4200)} )();
 
-    // Important: this file is a UI simulation only. I will not provide code or steps to bypass manufacturer security, FRP locks, carrier locks, or other protections. If you own a device and require a legitimate unlock, contact MKOPA or the device manufacturer and provide proof of ownership.
+    // Initial detection (some APIs require interaction; we still attempt)
+    detectDevice();
+
+    // accessibility: submit admin on Enter
+    document.getElementById('adminPass').addEventListener('keyup', e => { if(e.key === 'Enter') document.getElementById('authorize').click(); });
+
+    // Important notes to you (developer):
+    // - Browsers DO NOT expose IMEI, SIM ICCID/IMSI, or other privileged telephony identifiers to web pages.
+    // - IMEI, phone number, and MPESA transaction must always come from user input or from a native app with explicit permissions.
+    // - IP/ISP detection relies on public APIs (ipify/ipapi). These may be blocked by CORS or rate limits — code handles failures gracefully.
   </script>
 </body>
 </html>
