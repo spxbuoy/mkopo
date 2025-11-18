@@ -1,0 +1,742 @@
+/* ===== Base Styles & Variables ===== */
+:root {
+  /* Color Palette */
+  --primary: #00a651;
+  --primary-dark: #007d3c;
+  --primary-light: #e0f5ea;
+  --secondary: #f7931e;
+  --danger: #e74c3c;
+  --warning: #f39c12;
+  --success: #2ecc71;
+  --info: #3498db;
+  --dark: #2c3e50;
+  --light: #f8f9fa;
+  --gray: #95a5a6;
+  --dark-gray: #7f8c8d;
+  
+  /* Typography */
+  --font-main: 'Poppins', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+  
+  /* Transitions */
+  --transition-fast: all 0.15s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  
+  /* Terminal Colors */
+  --terminal-bg: #1e1e1e;
+  --terminal-text: #f0f0f0;
+  --terminal-green: #4ec9b0;
+  --terminal-yellow: #dcdcaa;
+  --terminal-red: #f48771;
+}
+
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: var(--space-md);
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 166, 81, 0.05) 0%, rgba(0, 166, 81, 0) 20%),
+    radial-gradient(circle at 90% 80%, rgba(247, 147, 30, 0.05) 0%, rgba(247, 147, 30, 0) 20%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* ===== Utility Classes ===== */
+.text-primary { color: var(--primary); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
+.text-warning { color: var(--warning); }
+.text-info { color: var(--info); }
+.text-muted { color: var(--gray); }
+
+.bg-primary { background-color: var(--primary); }
+.bg-success { background-color: var(--success); }
+.bg-danger { background-color: var(--danger); }
+.bg-warning { background-color: var(--warning); }
+.bg-info { background-color: var(--info); }
+.bg-light { background-color: var(--light); }
+
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* ===== Portal Container ===== */
+.unlock-portal-card {
+  background-color: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+}
+
+.portal-header {
+  padding: var(--space-xl);
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+
+.secure-badge {
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  background-color: var(--primary);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  transform: rotate(15deg);
+}
+
+.portal-title {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-xs);
+  color: var(--primary);
+}
+
+.portal-subtitle {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 0;
+}
+
+/* ===== Progress Tracker ===== */
+.progress-tracker {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.progress-steps {
+  position: relative;
+  z-index: 1;
+}
+
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  transition: var(--transition-normal);
+}
+
+.step-indicator.active .step-icon {
+  background-color: var(--primary);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 166, 81, 0.3);
+}
+
+.step-indicator.completed .step-icon {
+  background-color: var(--success);
+  color: white;
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--light);
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-xs);
+  transition: var(--transition-normal);
+}
+
+.step-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray);
+  text-align: center;
+  transition: var(--transition-normal);
+}
+
+.step-indicator.active .step-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: var(--light);
+  border-radius: 3px;
+  margin-top: -23px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 25%;
+  background-color: var(--primary);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* ===== Step Cards ===== */
+.step {
+  display: none;
+  padding: var(--space-xl);
+  animation: fadeIn 0.5s ease;
+}
+
+.step.active {
+  display: block;
+}
+
+.step-card {
+  border: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.step-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-header {
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.step-title {
+  font-size: 1.25rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.card-body {
+  padding: var(--space-lg);
+}
+
+/* ===== Form Styles ===== */
+.form-label {
+  font-weight: 500;
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #ddd;
+  transition: var(--transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.25rem rgba(0, 166, 81, 0.15);
+}
+
+.input-group-text {
+  background-color: var(--light);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 166, 81, 0.2);
+}
+
+.btn-outline-secondary {
+  border-color: #ddd;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--light);
+}
+
+/* ===== Device Info Cards ===== */
+.device-info-card,
+.device-summary-card,
+.unlock-details-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.info-title,
+.summary-title,
+.details-title {
+  font-size: 1rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.info-item {
+  margin-bottom: var(--space-md);
+}
+
+.info-label {
+  font-weight: 500;
+  color: var(--dark-gray);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.info-value {
+  font-weight: 400;
+  color: var(--dark);
+}
+
+.battery-progress {
+  height: 6px;
+}
+
+/* ===== Terminal Styles ===== */
+.terminal-container {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.terminal-header {
+  background-color: #333;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-close {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+}
+
+.btn-close-red { background-color: #ff5f56; }
+.btn-close-yellow { background-color: #ffbd2e; }
+.btn-close-green { background-color: #27c93f; }
+
+.terminal-title {
+  color: #aaa;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.terminal-body {
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
+  padding: 1rem;
+  height: 200px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.terminal-line {
+  margin-bottom: 2px;
+  word-break: break-all;
+}
+
+.terminal-line::before {
+  content: "> ";
+  color: var(--terminal-green);
+}
+
+.terminal-line.error::before {
+  color: var(--terminal-red);
+}
+
+.terminal-line.warning::before {
+  color: var(--terminal-yellow);
+}
+
+/* ===== Progress Container ===== */
+.progress-container {
+  margin-bottom: var(--space-lg);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+  font-size: 0.9rem;
+}
+
+.progress-status {
+  font-weight: 500;
+}
+
+.progress-percent {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.progress {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.progress-bar {
+  transition: width 0.3s ease;
+}
+
+/* ===== Download Simulator ===== */
+.download-simulator {
+  background-color: var(--light);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+}
+
+.download-header {
+  margin-bottom: var(--space-xs);
+}
+
+.download-title {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.download-speed {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.download-details {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+/* ===== Security Badge ===== */
+.security-badge {
+  margin-top: var(--space-lg);
+}
+
+.badge-content {
+  background-color: var(--light);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+.badge-content i {
+  color: var(--primary);
+}
+
+/* ===== Success Animation ===== */
+.success-card {
+  border: none !important;
+  background-color: rgba(0, 166, 81, 0.05);
+}
+
+.success-animation {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto var(--space-lg);
+}
+
+.checkmark {
+  width: 150px;
+  height: 150px;
+  display: block;
+  stroke-width: 5;
+  stroke: var(--white);
+  stroke-miterlimit: 10;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 5;
+  stroke-miterlimit: 10;
+  stroke: var(--success);
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+.success-confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(46, 204, 113, 0.3) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(46, 204, 113, 0.3) 0%, transparent 20%),
+    radial-gradient(circle at 40% 60%, rgba(46, 204, 113, 0.3) 0%, transparent 20%),
+    radial-gradient(circle at 60% 40%, rgba(46, 204, 113, 0.3) 0%, transparent 20%);
+  animation: confetti 2s ease infinite;
+}
+
+.success-title {
+  font-size: 1.75rem;
+  color: var(--success);
+  margin-bottom: var(--space-md);
+}
+
+.success-message {
+  color: var(--dark-gray);
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+}
+
+/* ===== Instructions ===== */
+.instructions {
+  margin: var(--space-xl) 0;
+}
+
+.instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+  color: white;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.instruction:hover .icon-circle {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.instruction-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+/* ===== Error Card ===== */
+.error-card {
+  background-color: rgba(231, 76, 60, 0.05);
+  border: none !important;
+}
+
+.error-icon {
+  font-size: 5rem;
+  color: var(--danger);
+  animation: bounceIn 0.6s ease;
+}
+
+.error-title {
+  font-size: 1.75rem;
+  color: var(--danger);
+  margin-bottom: var(--space-md);
+}
+
+.error-message {
+  color: var(--dark-gray);
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+}
+
+.support-info {
+  background-color: white;
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.support-hours {
+  font-size: 0.85rem;
+}
+
+/* ===== Footer ===== */
+.portal-footer {
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes scale {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+@keyframes fill {
+  100% { box-shadow: inset 0 0 0 100vh var(--success); }
+}
+
+@keyframes confetti {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.1); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+  .unlock-portal-card {
+    border-radius: var(--radius-lg);
+  }
+  
+  .portal-header {
+    padding: var(--space-lg);
+  }
+  
+  .step {
+    padding: var(--space-md);
+  }
+  
+  .instruction-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    padding: var(--space-sm);
+  }
+  
+  .portal-title {
+    font-size: 1.5rem;
+  }
+  
+  .step-title {
+    font-size: 1.1rem;
+  }
+  
+  .terminal-body {
+    height: 150px;
+    font-size: 0.8rem;
+  }
+  
+  .success-animation {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .checkmark {
+    width: 100px;
+    height: 100px;
+  }
+}
